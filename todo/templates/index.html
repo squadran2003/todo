@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block title %}Todo's{% endblock %}
+{% block jumbotron %}
+<div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Todo's</h1>
+    <p class="col-md-8 fs-4">App to keep record of your daily tasks</p>
+    <a class="btn btn-primary" href="{% url 'tasks' %}" role="button">View tasks</a>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary" href="{% url 'task_new' %}" role="button">Add a new task</a>
+    {% endif %}
+</div>
+{% endblock %}
+{% block content%}
+{% endblock %}

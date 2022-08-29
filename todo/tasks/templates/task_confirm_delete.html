@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% crispy example_form example_form.helper %}
+{% block title %}Todo's:delete confirmation task{% endblock %}
+{% block content%}
+<div class="row">
+    <div class="col-md-6">
+        <form method="post">{% csrf_token %}
+            <p>Are you sure you want to delete "{{ object }}"?</p>
+            {{ form|crispy}}
+            <input type="submit" class="btn btn-danger" value="Confirm">
+        </form>
+    </div>
+</div>
+{% endblock %}

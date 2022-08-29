@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% crispy example_form example_form.helper %}
+{% block title %}Todo's:task detail{% endblock %}
+{% block content%}
+
+<div class="row">
+    <div class="col-md-6">
+        <h4>Edit Task</h4>
+        <form method="post" action="{% url 'task_update' task.id %}">
+            {% csrf_token %}
+            <div id="div_id_name" class="form-group"> <label for="id_name" class=" requiredField">
+                task name<span class="asteriskField">*</span> </label> <div> <input type="text" value='{{task.name}}'name="name" maxlength="500" class="textinput textInput form-control" required="" id="id_name"> </div> </div>
+            <input type="submit" class="btn btn-primary" value="submit">
+        </form>
+    </div>
+</div>
+{% endblock %}
